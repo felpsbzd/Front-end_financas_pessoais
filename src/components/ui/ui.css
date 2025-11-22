@@ -1,28 +1,47 @@
-/* src/components/ui/ui.css */
-
 /* --- Header --- */
 .header {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  padding: 2rem 0;
-  margin-bottom: 2rem;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  /* Gradiente moderno sutil */
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: white;
+  padding: 3rem 2rem;
+  margin-bottom: 2.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
   text-align: center;
 }
 
 .header h1 {
-  margin: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em; /* Deixa a fonte mais "apertadinha" e moderna */
+}
+
+.header p {
+  opacity: 0.9;
+  font-weight: 400;
 }
 
 /* --- Card --- */
 .card {
-  background-color: var(--color-white);
-  padding: 1.5rem;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 1rem;
+  background-color: var(--color-surface);
+  padding: 2rem;
+  border-radius: var(--radius-lg); /* Mais arredondado */
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-border); /* Borda sutil */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px); /* Efeito de elevação leve ao passar o mouse */
+  box-shadow: var(--shadow-lg);
+}
+
+.card h3 {
+  margin-bottom: 1.5rem;
+  color: var(--color-text-main);
+  font-size: 1.25rem;
 }
 
 /* --- Buttons --- */
@@ -30,7 +49,10 @@
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius-md);
   font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
   transition: all 0.2s ease;
+  border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -38,29 +60,27 @@
 }
 
 .btn:active {
-  transform: scale(0.98); /* Efeito de clique */
+  transform: scale(0.96);
 }
 
-/* Variante Primária (Verde) */
+/* Primary: Cor sólida vibrante */
 .btn-primary {
   background-color: var(--color-primary);
   color: white;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.4); /* Sombra colorida */
 }
 .btn-primary:hover {
   background-color: var(--color-primary-dark);
+  box-shadow: 0 6px 8px -1px rgba(79, 70, 229, 0.5);
 }
 
-/* Variante Danger (Vermelho - para excluir) */
+/* Danger: Texto vermelho com fundo suave */
 .btn-danger {
-  background-color: transparent;
+  background-color: #fee2e2; /* Vermelho bem clarinho */
   color: var(--color-danger);
-  border: 1px solid var(--color-danger);
-  padding: 0.4rem 0.8rem; /* Botão menor */
-  font-size: 0.9rem;
 }
 .btn-danger:hover {
-  background-color: var(--color-danger);
-  color: white;
+  background-color: #fecaca;
 }
 
 /* --- Inputs --- */
@@ -68,25 +88,35 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   width: 100%;
 }
 
 .input-group label {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .input-field {
-  padding: 0.75rem;
-  border: 1px solid #d1d5db;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--color-border); /* Borda mais visível */
   border-radius: var(--radius-md);
+  background-color: #f9fafb; /* Fundo levemente cinza dentro do input */
+  color: var(--color-text-main);
+  font-size: 1rem;
   outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.2s;
+}
+
+.input-field::placeholder {
+  color: #9ca3af;
 }
 
 .input-field:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.2);
+  background-color: white;
+  box-shadow: 0 0 0 4px var(--color-primary-light); /* Anel de foco moderno */
 }

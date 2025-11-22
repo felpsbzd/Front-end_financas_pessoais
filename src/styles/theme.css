@@ -1,0 +1,31 @@
+:root {
+  /* --- Paleta Clean Tech --- */
+  
+  /* Cor Principal (Indigo Vibrante - Passa confiança e modernidade) */
+  --color-primary: #4f46e5;       
+  --color-primary-dark: #4338ca;
+  --color-primary-light: #e0e7ff; /* Para fundos suaves */
+
+  /* Cores de Feedback */
+  --color-success: #10b981;       /* Verde Esmeralda */
+  --color-danger: #ef4444;        /* Vermelho Vivo */
+  
+  /* Cores Neutras (Fundo e Texto) */
+  --color-bg: #f3f4f6;            /* Cinza azulado muito claro (Fundo da tela) */
+  --color-surface: #ffffff;       /* Branco puro (Cards) */
+  
+  --color-text-main: #111827;     /* Preto suave (Melhor leitura) */
+  --color-text-secondary: #6b7280;/* Cinza médio */
+  --color-border: #e5e7eb;        /* Bordas sutis */
+
+  /* Estética (Shadows & Radius) */
+  --radius-sm: 6px;
+  --radius-md: 12px;              /* Bordas mais arredondadas = mais moderno */
+  --radius-lg: 16px;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
