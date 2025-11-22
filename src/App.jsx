@@ -1,24 +1,46 @@
 import React from 'react';
 import Header from './components/ui/Header';
-import Card from './components/ui/Card';
-import Button from './components/ui/Button';
-import Input from './components/ui/Input';
+import TransactionForm from './components/finance/TransactionForm';
+import TransactionList from './components/finance/TransactionList';
+import SummaryCards from './components/finance/SummaryCards';
+import { useTransactions } from './hooks/useTransactions';
 
 function App() {
+  // Chamamos nosso Hook poderoso aqui
+  const { 
+    transactions, 
+    addTransaction, 
+    removeTransaction, 
+    toggleStatus, 
+    summary 
+  } = useTransactions();
+
   return (
-    <div className="container">
-      <Header title="FinTech" subtitle="Controle Financeiro" />
+    <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <Header 
+        title="FinTech Dashboard" 
+        subtitle="Gerencie suas finanças pessoais com eficiência" 
+      />
       
-      <Card>
-        <h3>Teste de UI Kit</h3>
-        <Input label="Valor (R$)" placeholder="0,00" />
-        <Button onClick={() => alert('Clicou!')}>Adicionar Transação</Button>
-      </Card>
-      
-      <Card>
-        <p>Item de exemplo</p>
-        <Button variant="danger">Excluir</Button>
-      </Card>
+      {/* Cards de Resumo (Topo) */}
+      <SummaryCards summary={summary} />
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
+        {/* Formulário de Cadastro */}
+        <section>
+          <TransactionForm onAdd={addTransaction} />
+        </section>
+
+        {/* Lista de Transações */}
+        <section>
+          <h2 style={{ marginBottom: '1rem' }}>Histórico</h2>
+          <TransactionList 
+            transactions={transactions} 
+            onRemove={removeTransaction}
+            onToggle={toggleStatus}
+          />
+        </section>
+      </div>
     </div>
   );
 }
