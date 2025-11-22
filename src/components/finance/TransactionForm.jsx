@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Card from '../ui/Card';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
-
+import { toast } from 'sonner';
 const TransactionForm = ({ onAdd }) => {
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState('');
@@ -11,16 +11,15 @@ const TransactionForm = ({ onAdd }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validação simples
     if (!description.trim() || !amount) {
-      alert("Por favor, preencha a descrição e o valor.");
+      toast.error("Preencha todos os campos!"); // <--- Toast de Erro
       return;
     }
 
-    // Envia os dados para a função pai
     onAdd({ description, amount, type });
+    
+    toast.success("Transação registrada com sucesso!"); // <--- Toast de Sucesso
 
-    // Limpa o formulário
     setDescription('');
     setAmount('');
   };

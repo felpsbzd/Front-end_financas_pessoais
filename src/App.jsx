@@ -5,12 +5,14 @@ import TransactionList from './components/finance/TransactionList';
 import SummaryCards from './components/finance/SummaryCards';
 import FinancialChart from './components/finance/FinancialChart'; // O Gráfico
 import { useTransactions } from './hooks/useTransactions';
+import { Toaster } from 'sonner';
 
 function App() {
   const { transactions, addTransaction, removeTransaction, toggleStatus, summary } = useTransactions();
 
   return (
     <div className="container" style={{ maxWidth: '1000px', margin: '0 auto', paddingBottom: '4rem' }}>
+      <Toaster richColors position="top-right" theme="dark" />
       <Header 
         title="FinTech Pro" 
         subtitle="Controle Financeiro Next-Gen" 
