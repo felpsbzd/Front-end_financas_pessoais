@@ -102,13 +102,14 @@
 
 .input-field {
   padding: 0.875rem 1rem;
-  border: 2px solid var(--color-border); /* Borda mais visível */
+  border: 2px solid var(--color-border);
   border-radius: var(--radius-md);
-  background-color: #f9fafb; /* Fundo levemente cinza dentro do input */
-  color: var(--color-text-main);
+  background-color: #ffffff;  /* Fundo Branco Forçado */
+  color: #111827;             /* Texto Preto Forçado (Para evitar invisibilidade) */
   font-size: 1rem;
   outline: none;
   transition: all 0.2s;
+  width: 100%;                /* Garante que ocupe o espaço */
 }
 
 .input-field::placeholder {
