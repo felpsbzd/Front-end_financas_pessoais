@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./styles/global.css";
+import { useTransactions } from "./hooks/useTransactions";
+import { TransactionForm } from "./components/finance/TransactionForm";
+import { TransactionList } from "./components/finance/TransactionList";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { transactions, addTransaction, removeTransaction, toggleStatus } =
+    useTransactions();
+
+  // Cálculo do saldo total (opcional, mas legal de ver)
+  const balance = transactions.reduce((acc, t) => {
+    return t.type === "income" ? acc + t.amount : acc - t.amount;
+  }, 0);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+    <div className="app-container">
+      <header style={{ marginBottom: "2rem", textAlign: "center" }}>
+        <h1 style={{ fontSize: "1.8rem", color: "var(--color-primary)" }}>
+          FinTech Dashboard
+        </h1>
+        <p style={{ color: "var(--color-text-secondary)" }}>
+          Saldo Atual:{" "}
+          <strong
+            style={{
+              color:
+                balance >= 0 ? "var(--color-income)" : "var(--color-expense)",
+            }}
+          >
+            {new Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(balance)}
+          </strong>
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      </header>
+
+      <main>
+        <TransactionForm onAddTransaction={addTransaction} />
+
+        <TransactionList
+          transactions={transactions}
+          onRemove={removeTransaction}
+          onToggle={toggleStatus}
+        />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;

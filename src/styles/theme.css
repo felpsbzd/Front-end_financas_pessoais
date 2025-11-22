@@ -1,0 +1,17 @@
+/* src/styles/theme.css */
+:root {
+  /* Paleta FinTech */
+  --color-bg: #0f172a; /* Fundo escuro (Slate 900) */
+  --color-surface: #1e293b; /* Cartões (Slate 800) */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+
+  /* Cores Semânticas */
+  --color-primary: #3b82f6; /* Azul principal */
+  --color-income: #10b981; /* Verde (Entradas) */
+  --color-expense: #ef4444; /* Vermelho (Saídas) */
+
+  /* Espaçamentos e Bordas */
+  --radius: 8px;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}

@@ -1,0 +1,45 @@
+/* src/styles/ui.css */
+
+/* --- CARD --- */
+.ui-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- BUTTON --- */
+.ui-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.ui-button:hover {
+  filter: brightness(1.1);
+}
+
+/* --- INPUT --- */
+.ui-input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--color-bg);
+  border: 1px solid #334155;
+  border-radius: var(--radius);
+  color: var(--color-text-primary);
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.ui-input:focus {
+  border-color: var(--color-primary);
+}
